@@ -1,6 +1,5 @@
 <x-layout>
+  <h1 class="title_red">{{ $title }}</h1>
 
-    <h1 class="title">{{ $h1title }}</h1>
-
-    <p>{!! $h1description !!}</p>
+  <p class="lead text-muted">{{ $descrizione }}</p>
 </x-layout>

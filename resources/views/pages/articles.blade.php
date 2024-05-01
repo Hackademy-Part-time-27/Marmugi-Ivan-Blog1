@@ -1,24 +1,18 @@
-<x-layout>
-        <h1 class="title ps-4">Articoli</h1>
+<x-layout title="Articoli">
+    <h1 class="title">Articoli</h1>
 
-        <div>
-            @if($articles)
-                <ul>
-                    @foreach($articles as $index => $article)
-                    @if($article['visible'])
-                    <x-card
-                    :index="$index"
-                    :title="$article['titlearticles']"
-                    :description="$article['description']"
-                    :category="$article['category']"
-                    :route="route('article', $index)"
-                    />
-                    @endif
-                    @endforeach
-                </ul>
-            @else
-                <p>Non ci sono articoli disponibili</p>
-            @endif
-
-        </div>
+    <div>
+        @if($articles)
+            @foreach($articles as $article)
+                <x-card
+                    :category="$article->category"
+                    :title="$article->title"
+                    :description="$article->description"
+                    :route="route('article', $article)"
+                />
+            @endforeach
+        @else
+            <p>Non ci sono articoli disponibili</p>
+        @endif
+    </div>
 </x-layout>

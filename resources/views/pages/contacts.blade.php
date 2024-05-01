@@ -1,24 +1,26 @@
 <x-layout>
+    <h1 class="title_red">Contatti</h1>
+    <p class="lead text-muted">Inviaci la tua Fake News</p>
 
-<h1 class="title">{{ $title }} </h1>
+    <x-success />
+    <x-error/>
 
-<p class="lead text-muted">Contact us</p>
 
-<form action="" method="POST">
-    <div class="row g-3">
-    <div class="col-12">
-
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" class="form-control">
-    </div>
-    <div class="col-12">
-    <label for="message">Messaggio</label>
-    <textarea name="message" id="message" rows="5" class="form-control"></textarea>
-    </div>
-    <div class="col-12">
-    <button type="submit" class="btn btn-primary">Invia</button>
-    </div>
-    </div>
-</form>
+    <form action="{{route('contacts.send')}}" method="POST">
+        @csrf
+        <div class="row g-3">
+            <div class="col-12">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" class="form-control">
+            </div>
+            <div class="col-12">
+                <label for="message">Messaggio</label>
+                <textarea name="message" id="message" rows="5" class="form-control"></textarea>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Invia</button>
+            </div>
+        </div>
+    </form>
 
 </x-layout>
